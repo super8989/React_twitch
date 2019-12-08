@@ -4,6 +4,8 @@ import "./App.css";
 
 function App() {
 	const [topGames, setTopGames] = useState([]);
+	const API = "https://api.twitch.tv/helix/games/top";
+	const CLIENT_ID = "mt5146rna7y3m6wlfvy2yvtq8matpa";
 
 	useEffect(() => {
 		getTwitch();
@@ -13,12 +15,9 @@ function App() {
 
 	async function getTwitch() {
 		try {
-			const response = await axios.get(
-				"https://api.twitch.tv/helix/games/top",
-				{
-					headers: { "Client-ID": "mt5146rna7y3m6wlfvy2yvtq8matpa" }
-				}
-			);
+			const response = await axios.get(API, {
+				headers: { "Client-ID": CLIENT_ID }
+			});
 			setTopGames(response.data.data);
 			console.log(response);
 		} catch (error) {
