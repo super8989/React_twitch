@@ -20,6 +20,12 @@ function GameStreams({ match, location }) {
 				stream.thumbnail_url = newURL;
 				return stream;
 			});
+
+			let totalViewers = finalArray.reduce((acc, val) => {
+				return acc + val.viewer_count;
+			}, 0);
+
+			setViewers(totalViewers);
 			setStreamData(finalArray);
 		};
 		fetchData();
@@ -29,11 +35,6 @@ function GameStreams({ match, location }) {
 		<div>
 			<li>{match.params.id}</li>
 			<li>{location.state.gameID}</li>
-			<div>
-				{streamData.map(stream => (
-					<img src={stream.thumbnail_url} />
-				))}
-			</div>
 		</div>
 	);
 }
