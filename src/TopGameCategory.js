@@ -27,13 +27,17 @@ function TopGameCategory() {
 		}
 	}
 
+	const handleClick = e => {
+		console.log("clicked");
+	};
+
 	const _boxArt = url =>
 		url.replace("{width}", "300").replace("{height}", "400");
 
 	return (
 		<div className='TopGameCategory-container'>
 			{topGames.map(game => (
-				<div key={game.id}>
+				<div key={game.id} onClick={handleClick}>
 					<h1>{game.name}</h1>
 					<img src={_boxArt(game.box_art_url)} alt={game.name} />
 				</div>
