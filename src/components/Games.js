@@ -15,11 +15,12 @@ function Games() {
 					.replace("{width}", "300")
 					.replace("{height}", "400");
 				game.box_art_url = newURL;
+				return game;
 			});
-			setGames(response.data.data);
+			setGames(finalArray);
 		};
 		fetchData();
-	});
+	}, [games]);
 
 	return (
 		<div>
@@ -35,7 +36,7 @@ function Games() {
 									<Link
 										className='link'
 										to={{
-											pathname: "game/" + game.name,
+											pathname: `game/${game.name}`,
 											state: {
 												gameID: game.id
 											}
