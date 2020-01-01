@@ -20,7 +20,7 @@ function Games() {
 			setGames(finalArray);
 		};
 		fetchData();
-	}, [games]);
+	}, []);
 
 	return (
 		<div>
