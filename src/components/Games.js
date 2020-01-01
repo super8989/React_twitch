@@ -9,6 +9,13 @@ function Games() {
 		const fetchData = async () => {
 			const response = await api.get("https://api.twitch.tv/helix/games/top");
 			console.log(response.data);
+			let dataArray = response.data.data;
+			let finalArray = dataArray.map(game => {
+				let newURL = game.box_art_url
+					.replace("{width}", "300")
+					.replace("{height}", "400");
+				game.box_art_url = newURL;
+			});
 			setGames(response.data.data);
 		};
 		fetchData();
@@ -19,7 +26,7 @@ function Games() {
 			<h1>Most Popular Games</h1>
 			<div className='row'>
 				{games.map(game => (
-					<div className='col-4'>
+					<div className='col-3'>
 						<div className='card'>
 							<img className='card-img-top' src={game.box_art_url} />
 							<div className='card-body'>
