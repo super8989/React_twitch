@@ -9,7 +9,7 @@ function GameStreams({ match, location }) {
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await api.get(
-				`https://api.twitch.tv/helix/streams?game_id${location.state.gameID}`
+				`https://api.twitch.tv/helix/streams?game_id=${location.state.gameID}`
 			);
 			console.log(response.data);
 			let dataArray = response.data.data;
