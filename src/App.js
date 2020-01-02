@@ -1,12 +1,11 @@
 import React from "react";
 
-import { Route, Switch, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Games from "./components/Games";
 import Streams from "./components/Streams";
 import GameStreams from "./components/GameStreams";
-import TopGameCategory from "./TopGameCategory";
 
 import "./App.css";
 

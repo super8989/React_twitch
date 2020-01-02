@@ -6,7 +6,7 @@ import "./TopGameCategory.css";
 function TopGameCategory() {
 	const [topGames, setTopGames] = useState([]);
 	const API = "https://api.twitch.tv/helix/games/top";
-	const GET_CLIPS = "https://api.twitch.tv/helix/clips?id=";
+	// const GET_CLIPS = "https://api.twitch.tv/helix/clips?id=";
 	const CLIENT_ID = "mt5146rna7y3m6wlfvy2yvtq8matpa";
 
 	useEffect(() => {
