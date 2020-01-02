@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../api";
 
-function Games() {
+function TopGames() {
 	const [games, setGames] = useState([]);
 
 	useEffect(() => {
@@ -62,4 +62,4 @@ function Games() {
 	);
 }
 
-export default Games;
+export default TopGames;

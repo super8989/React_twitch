@@ -1,7 +1,7 @@
 import React from "react";
 
-function Streams() {
+function TopStreams() {
 	return <div>Streams</div>;
 }
 
-export default Streams;
+export default TopStreams;
