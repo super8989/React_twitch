@@ -33,8 +33,35 @@ function GameStreams({ match, location }) {
 
 	return (
 		<div>
-			<li>{match.params.id}</li>
-			<li>{location.state.gameID}</li>
+			<h1 className='text-center'>{match.params.id} Streams </h1>
+			<h4 className='text-center'>
+				<strong className='text-primary'>{viewers}</strong> people currenlty
+				watching {match.params.id}
+			</h4>
+			<div className='row'>
+				{streamData.map(stream => (
+					<div className='col-xl-2 col-lg-3 col-md-4 col-sm-6 mt-5'>
+						<div className='card'>
+							<img className='card-img-top' src={stream.thumbnail_url} />
+							<div className='card-body'>
+								<h5 className='card-title'>{stream.user_name}</h5>
+								<div className='card-text'>
+									{stream.viewer_count} liver viewers
+								</div>
+								<button className='btn btn-success'>
+									<a
+										className='link'
+										href={`https://twitch.tv/${stream.user_name}`}
+										target='_blank'
+									>
+										Watch {stream.user_name}'s channel
+									</a>
+								</button>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
 		</div>
 	);
 }
