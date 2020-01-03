@@ -17,6 +17,19 @@ function TopStreams() {
 				return channel;
 			});
 
+			let gameID = dataArray.map(stream => {
+				return stream.game_id;
+			});
+			console.log(gameID);
+			let baseURL = `https://api.twitch.tv/helix/games?`;
+			let queryParams = "";
+			gameID.map(id => {
+				return (queryParams = queryParams + `id=${id}&`);
+			});
+
+			let finalURL = baseURL + queryParams;
+			console.log(finalURL);
+
 			setChannels(finalArray);
 		};
 		fetchData();
