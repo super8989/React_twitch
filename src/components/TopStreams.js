@@ -9,7 +9,7 @@ function TopStreams() {
 			//fetch top streams
 			const response = await api.get("https://api.twitch.tv/helix/streams");
 			let dataArray = response.data.data;
-			console.log(response.data.data);
+			// console.log(response.data.data);
 
 			// array of game ids
 			let gameID = dataArray.map(stream => {
@@ -33,7 +33,7 @@ function TopStreams() {
 
 			//array of game information
 			let gameNamesArray = gameNames.data.data;
-			console.log(gameNamesArray);
+			// console.log(gameNamesArray);
 
 			let finalArray = dataArray.map(stream => {
 				stream.gameName = "";
@@ -42,15 +42,27 @@ function TopStreams() {
 						return (stream.gameName = name.name);
 					}
 				});
-				console.log(stream.gameName);
+				// console.log(stream.gameName);
+
+				let newURL = stream.thumbnail_url
+					.replace("{width}", "300")
+					.replace("{height}", "300");
+				stream.thumbnail_url = newURL;
+				return stream;
 			});
 
-			// setChannels(finalArray);
+			setChannels(finalArray);
 		};
 		fetchData();
 	}, []);
 
-	return <div>Streams</div>;
+	// console.log(channels);
+
+	return (
+		<div>
+			<h1>Most Popular Live Streams</h1>
+		</div>
+	);
 }
 
 export default TopStreams;
