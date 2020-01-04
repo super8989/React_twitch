@@ -56,11 +56,39 @@ function TopStreams() {
 		fetchData();
 	}, []);
 
-	// console.log(channels);
+	console.log(channels);
 
 	return (
 		<div>
 			<h1>Most Popular Live Streams</h1>
+			<div className='row'>
+				{channels.map(channel => (
+					<div
+						className='col-xl-2 col-lg-3 col-md-4 col-sm-6 mt-5'
+						key={channel.id}
+					>
+						<div className='card'>
+							<img className='card-img-top' src={channel.thumbnail_url} />
+							<div className='card-body'>
+								<h3 className='card-title'>{channel.user_name}</h3>
+								<h5 className='card-text'>{channel.gameName}</h5>
+								<div className='card-text'>
+									{channel.viewer_count} live viewers
+								</div>
+								<button className='btn btn-success'>
+									<a
+										href={`https://twitch.tv/${channel.user_name}`}
+										className='link'
+										target='_blank'
+									>
+										Watch {channel.user_name}'s stream
+									</a>
+								</button>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
 		</div>
 	);
 }
