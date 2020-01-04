@@ -11,7 +11,7 @@ import "./App.css";
 
 function App() {
 	return (
-		<div>
+		<div className='App container-fluid'>
 			<Header />
 			<Route exact path='/' component={TopGames} />
 			<Route exact path='/top-streams' component={TopStreams} />
