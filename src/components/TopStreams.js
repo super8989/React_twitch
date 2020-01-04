@@ -45,8 +45,8 @@ function TopStreams() {
 				// console.log(stream.gameName);
 
 				let newURL = stream.thumbnail_url
-					.replace("{width}", "300")
-					.replace("{height}", "300");
+					.replace("{width}", "440")
+					.replace("{height}", "248");
 				stream.thumbnail_url = newURL;
 				return stream;
 			});
@@ -63,10 +63,7 @@ function TopStreams() {
 			<h1>Most Popular Live Streams</h1>
 			<div className='row'>
 				{channels.map(channel => (
-					<div
-						className='col-xl-2 col-lg-3 col-md-4 col-sm-6 mt-5'
-						key={channel.id}
-					>
+					<div className='col-lg-3 col-md-4 col-sm-6 mt-5' key={channel.id}>
 						<div className='card'>
 							<img className='card-img-top' src={channel.thumbnail_url} />
 							<div className='card-body'>
